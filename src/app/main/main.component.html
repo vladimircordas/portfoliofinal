@@ -1,0 +1,42 @@
+<header>
+    <nav class="nav_bar" id="navBar">
+        <ul>
+            <li>
+                <a href="" id="backToIntro" bcRouterLink='/intro' bcRouterLinkActive="active" [navigationDelay]="950"><img src="./assets/images/intro/logo2.svg" alt="VC" /></a>
+            </li>
+            <li><a href="" routerLink='/main/about' (click)="abcont = !abcont" [routerLinkActive]="['active']">About</a></li>
+            <li><a href="" routerLink='/main/mywork' (click)="abcont = !abcont" [routerLinkActive]="['active']">My Work</a></li>
+            <li><a href="" routerLink='/main/contact' (click)="abcont = !abcont" [routerLinkActive]="['active']">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+<main id="mainIntroBack" [@animateAbCon]="abcont">
+    <router-outlet></router-outlet>
+    <div class="socials">
+        <div class="centerMenu">
+            <ul id="socials_menu" role="menu" class="show">
+                <li>
+                    <a>
+                        <fa name="fab fa-twitter"></fa>
+                    </a>
+                </li>
+                <li>
+                    <a>
+                        <fa name="fab fa-facebook-f"></fa>
+                    </a>
+                </li>
+                <li>
+                    <a>
+                        <fa name="fab fa-dribbble"></fa>
+                    </a>
+                </li>
+                <li>
+                    <a>
+                        <fa name="fab fa-behance"></fa>
+                    </a>
+                </li>
+            </ul>
+            <button id="pick_socials" class="closed"><fa name="fas fa-heart"></fa></button>
+        </div>
+    </div>
+</main>

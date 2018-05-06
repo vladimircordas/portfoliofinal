@@ -1,0 +1,106 @@
+:host {
+    display: block;
+}
+
+#about_wrapper {
+    display: grid;
+    grid-template-columns: 70% 25% 5%;
+    grid-template-rows: auto;
+    height: calc(100vh - 50px);
+    width: 100%;
+    .left_side {
+        width: 60%;
+        height: auto;
+        justify-self: center;
+        align-self: center;
+        h1,
+        p {
+            font-family: 'Space Mono', monospace;
+        }
+        h1 {
+            line-height: 34px;
+        }
+        p {
+            letter-spacing: -0.2px;
+        }
+    }
+    .right_side {
+        width: 100%;
+        height: auto;
+        justify-self: center;
+        align-self: start;
+        padding-top: 50px;
+        img {
+            overflow: hidden;
+            max-width: 100%;
+            height: auto;
+            border-radius: 100%;
+        }
+    }
+}
+
+@media only screen and (min-device-width: 320px) and (max-device-height: 823px) and (min-resolution: 192dpi) and (orientation: portrait) {
+    #about_wrapper {
+        display: block;
+        overflow-y: scroll;
+        .left_side,
+        .right_side {
+            width: 80%;
+            margin: 0 auto;
+        }
+        .left_side {
+            h1 {
+                font-size: 20px;
+                line-height: 20px;
+            }
+            p {
+                font-size: 14px;
+                line-height: 16px;
+            }
+        }
+    }
+}
+
+@media only screen and (min-device-width: 320px) and (max-device-height: 823px) and (min-resolution: 192dpi) and (orientation: landscape) {
+    #about_wrapper {
+        display: block;
+        overflow-y: scroll;
+        .left_side {
+            width: 80%;
+            margin: 0 auto;
+            h1 {
+                font-size: 20px;
+                line-height: 20px;
+            }
+            p {
+                font-size: 14px;
+                line-height: 16px;
+            }
+        }
+        .right_side {
+            display: none;
+        }
+    }
+}
+
+@media only screen and (min-device-width: 768px) and (max-device-height: 1024px) and (min-resolution: 192dpi) and (orientation: portrait) {
+    #about_wrapper .left_side {
+        width: 80%;
+    }
+}
+
+@media only screen and (min-device-width: 1024px) and (max-device-height: 768px) and (min-resolution: 192dpi) and (orientation: landscape) {
+    #about_wrapper {
+        display: grid;
+        grid-template-columns: 70% 25% 5%;
+        .left_side {
+            width: 60%;
+            height: auto;
+            justify-self: center;
+            align-self: center;
+        }
+        .right_side {
+            display: block;
+        }
+    }
+}

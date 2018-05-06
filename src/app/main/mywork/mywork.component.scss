@@ -1,0 +1,372 @@
+:host {
+    display: block;
+}
+
+#myWork_wrapper {
+    display: grid;
+    grid-template-columns: 30% 70%;
+    grid-template-rows: auto;
+    height: calc(100vh - 50px);
+    width: 100%;
+    overflow: hidden;
+    .left_side {
+        align-self: center;
+        justify-self: end;
+        margin-right: 50px;
+        animation: leftSideEntry 1s ease;
+        #pick_gallery {
+            display: none;
+            font-family: 'Space Mono', monospace;
+            font-weight: 600;
+            background: #f3f3f3;
+            outline: none;
+            #work-name {
+                font-family: 'Space Mono', monospace;
+                font-size: 14px;
+                vertical-align: middle;
+                font-weight: 600;
+            }
+            .caret {
+                height: 5px;
+                width: 5px;
+                transform: rotate(45deg);
+                border: 1px solid black;
+                border-top: none;
+                border-left: none;
+                display: inline-block;
+                vertical-align: middle;
+            }
+        }
+        ul {
+            list-style: none;
+            position: relative;
+            li {
+                margin-bottom: 20px;
+                position: relative;
+                min-width: 250px;
+                a {
+                    font-family: 'Space Mono', monospace;
+                    font-weight: 600;
+                    display: block;
+                    text-decoration: none;
+                    color: black;
+                    padding: 5px 5px 5px 10px;
+                    border: 1px solid transparent;
+                    transition: all .3s ease;
+                }
+                a.active,
+                a:hover {
+                    border: 1px solid black;
+                }
+                a.active {
+                    background: #f3f3f3;
+                }
+            }
+        }
+        ul:after {
+            position: absolute;
+            top: -80px;
+            bottom: -85px;
+            right: -305px;
+            display: block;
+            content: "";
+            width: 100%;
+            border: 1px solid black;
+            border-right: none;
+        }
+        .active:after {
+            position: absolute;
+            top: 50%;
+            right: -15px;
+            display: block;
+            height: 0;
+            width: 15px;
+            border-bottom: 1px solid black;
+            content: "";
+        }
+    }
+    .right_side {
+        align-self: center;
+        justify-self: center;
+        width: 100%;
+        .gallery_container {
+            height: 500px;
+            max-width: 100%;
+            background: white;
+            position: relative;
+            display: block;
+        }
+    }
+}
+
+@keyframes leftSideEntry {
+    0% {
+        transform: rotateY(90deg);
+    }
+    50% {
+        transform: rotateY(90deg);
+    }
+    100% {
+        transform: rotateY(0deg);
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    #myWork_wrapper {
+        grid-template-columns: 5% 35% 55% 5%;
+        .left_side {
+            grid-column-start: 2;
+            margin-right: 30px;
+        }
+        .right_side {
+            grid-column-start: 3;
+        }
+    }
+}
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 824px) and (max-device-height: 767px) and (min-resolution: 192dpi) and (orientation: landscape) {
+    #myWork_wrapper {
+        display: grid;
+        grid-template-columns: 100%;
+        grid-template-rows: 50px auto;
+        overflow-y: scroll;
+        padding-bottom: 0px;
+        .left_side {
+            margin: 0;
+            grid-row-start: 1;
+            grid-column-start: 1;
+            width: 100%;
+            #pick_gallery {
+                display: block;
+                width: 50%;
+                height: 32px;
+                margin: 0 auto;
+                text-align: center;
+                border-radius: 0;
+                border: 1px solid black;
+                outline: none;
+            }
+            ul {
+                display: block;
+                position: absolute;
+                padding: 0;
+                margin: 0;
+                top: 50px;
+                left: 0;
+                right: 50%;
+                bottom: 0;
+                z-index: 2001;
+                border-right: 1px solid black;
+                background: white;
+                transform: translateX(-100%);
+                opacity: 0;
+                transition: all .3s ease-in-out;
+                .active:after {
+                    display: none;
+                }
+                li {
+                    margin: 1px auto;
+                    position: relative;
+                    min-width: 250px;
+                    a {
+                        text-align: center;
+                    }
+                }
+            }
+            ul:after {
+                display: none;
+            }
+        }
+        #gallery_menu.show {
+            display: block;
+            transform: translateX(0);
+            opacity: 1;
+        }
+        .right_side {
+            grid-row-start: 2;
+            grid-column-start: 1;
+            .gallery_container {
+                height: 220px;
+            }
+        }
+    }
+}
+
+@media only screen and (min-device-width: 320px) and (max-device-height: 823px) and (min-resolution: 192dpi) and (orientation: portrait) {
+    #myWork_wrapper {
+        display: grid;
+        grid-template-columns: 100%;
+        grid-template-rows: 50px auto;
+        overflow-y: scroll;
+        .left_side {
+            margin: 0;
+            grid-row-start: 1;
+            grid-column-start: 1;
+            width: 100%;
+            #pick_gallery {
+                display: block;
+                height: 32px;
+                width: 50%;
+                margin: 0 auto;
+                text-align: center;
+                border-radius: 0;
+                border: 1px solid black;
+            }
+            ul {
+                display: block;
+                position: absolute;
+                padding: 0;
+                margin: 0;
+                top: 50px;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                z-index: 2001;
+                background: white;
+                transform: translateX(-100%);
+                opacity: 0;
+                transition: all .3s ease-in-out;
+                li {
+                    margin: 5px auto;
+                    position: relative;
+                    min-width: 250px;
+                    width: 50%;
+                    a {
+                        text-align: center;
+                    }
+                }
+            }
+            ul:after {
+                display: none;
+            }
+            .active:after {
+                display: none;
+            }
+            #gallery_menu.show {
+                display: block;
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        .right_side {
+            grid-row-start: 2;
+            grid-column-start: 1;
+        }
+    }
+}
+
+@media only screen and (min-device-width: 568px) and (max-device-height: 320px) and (min-resolution: 192dpi) and (orientation: landscape) {
+    .left_side ul {
+        li {
+            margin: 0 auto;
+            position: relative;
+            min-width: 250px;
+            a {
+                font-size: 14px;
+            }
+        }
+    }
+}
+
+@media only screen and (min-device-width: 824px) and (max-device-width: 1366px) and (orientation: landscape) {
+    #myWork_wrapper {
+        display: -ms-grid;
+        display: grid;
+        -ms-grid-columns: 35% 65%;
+        grid-template-columns: 35% 65%;
+        -ms-grid-rows: auto;
+        grid-template-rows: auto;
+        height: calc(100vh - 50px);
+        width: 100%;
+        overflow-x: hidden;
+        .left_side {
+            position: relative;
+            justify-self: end;
+            margin-right: 50px;
+            -ms-grid-row: 1;
+            grid-row: 1;
+            grid-row-start: 1;
+            -ms-grid-column: 1;
+            grid-column: 1;
+            grid-column-start: 1;
+            width: auto;
+            ul {
+                list-style: none;
+                position: relative;
+                transform: translateX(0);
+                border-right: none;
+                top: auto;
+                left: auto;
+                right: auto;
+                bottom: auto;
+                opacity: 1;
+                z-index: 0;
+                -webkit-padding-start: 40px;
+                li {
+                    margin-bottom: 20px;
+                    position: relative;
+                    min-width: 250px;
+                    a {
+                        font-family: 'Space Mono', monospace;
+                        display: block;
+                        text-decoration: none;
+                        color: black;
+                        padding: 5px 5px 5px 10px;
+                        border: 1px solid transparent;
+                        transition: all .3s ease;
+                    }
+                    a.active,
+                    a:hover {
+                        border: 1px solid black;
+                    }
+                    a.active {
+                        background: #f3f3f3;
+                    }
+                }
+                .active:after {
+                    position: absolute;
+                    top: 50%;
+                    right: -15px;
+                    display: block;
+                    height: 0;
+                    width: 15px;
+                    border-bottom: 1px solid black;
+                    content: "";
+                }
+            }
+            ul:after {
+                position: absolute;
+                top: -80px;
+                bottom: -85px;
+                right: -305px;
+                display: block;
+                content: "";
+                width: 100%;
+                border: 1px solid black;
+                border-right: none;
+            }
+        }
+        .right_side {
+            width: 100%;
+            align-self: center;
+            justify-self: center;
+            -ms-grid-row: 1;
+            grid-row: 1;
+            grid-row-start: 1;
+            -ms-grid-column: 2;
+            grid-column: 2;
+            grid-column-start: 2;
+            #pick_gallery {
+                display: none;
+                font-family: 'Space Mono', monospace;
+                background: #f3f3f3;
+            }
+        }
+    }
+}
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 824px) and (orientation: portrait) {
+    #myWork_wrapper .right_side .gallery_container {
+        height: 250px;
+    }
+}

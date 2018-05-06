@@ -1,0 +1,11 @@
+#content {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    height: auto;
+    overflow: hidden;
+}
+
+:host {
+    display: block;
+}
